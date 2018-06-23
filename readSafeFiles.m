@@ -1,0 +1,12 @@
+tbl=readtable('e:\kaggle\seizure\train_and_test_data_labels_safe.csv');
+safeFiles=cell(3,1);
+tbl = tbl(tbl.safe==1,:);
+safeFiles{1}.all = tbl(strncmp(tbl.image,'1',1),1:2);
+safeFiles{1}.zeros = safeFiles{1}.all(safeFiles{1}.all.class==0,:);
+safeFiles{1}.ones = safeFiles{1}.all(safeFiles{1}.all.class==1,:);
+safeFiles{2}.all = tbl(strncmp(tbl.image,'2',1),1:2);
+safeFiles{2}.zeros = safeFiles{2}.all(safeFiles{2}.all.class==0,:);
+safeFiles{2}.ones = safeFiles{2}.all(safeFiles{2}.all.class==1,:);
+safeFiles{3}.all = tbl(strncmp(tbl.image,'3',1),1:2);
+safeFiles{3}.zeros = safeFiles{3}.all(safeFiles{3}.all.class==0,:);
+safeFiles{3}.ones = safeFiles{3}.all(safeFiles{3}.all.class==1,:);
